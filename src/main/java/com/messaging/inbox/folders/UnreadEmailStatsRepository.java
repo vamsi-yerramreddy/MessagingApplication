@@ -1,6 +1,5 @@
-package io.javabrains.inbox.folders;
+package com.messaging.inbox.folders;
 
-import org.springframework.data.annotation.QueryAnnotation;
 import org.springframework.data.cassandra.repository.CassandraRepository;
 import org.springframework.data.cassandra.repository.Query;
 

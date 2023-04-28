@@ -1,15 +1,9 @@
-package io.javabrains;
+package com.messaging;
 
-import com.datastax.oss.driver.api.core.uuid.Uuids;
-import io.javabrains.inbox.EmailFolder.Email;
-import io.javabrains.inbox.EmailFolder.EmailRepository;
-import io.javabrains.inbox.EmailFolder.EmailService;
-import io.javabrains.inbox.emaillist.EmailListItemKey;
-import io.javabrains.inbox.emaillist.EmailListItemRepository;
-import io.javabrains.inbox.emaillist.EmailListItem;
-import io.javabrains.inbox.folders.Folder;
-import io.javabrains.inbox.folders.FolderRepository;
-import io.javabrains.inbox.folders.UnreadEmailStatsRepository;
+import com.messaging.inbox.EmailFolder.EmailService;
+import com.messaging.inbox.emaillist.EmailListItemRepository;
+import com.messaging.inbox.folders.FolderRepository;
+import com.messaging.inbox.folders.UnreadEmailStatsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

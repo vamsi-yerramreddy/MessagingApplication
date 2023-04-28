@@ -1,4 +1,4 @@
-package io.javabrains.inbox.folders;
+package com.messaging.inbox.folders;
 
 import org.springframework.data.cassandra.core.cql.PrimaryKeyType;
 import org.springframework.data.cassandra.core.mapping.*;

@@ -1,4 +1,4 @@
-package io.javabrains.inbox.emaillist;
+package com.messaging.inbox.emaillist;
 
 import org.springframework.data.cassandra.repository.CassandraRepository;
 

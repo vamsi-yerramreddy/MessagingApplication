@@ -1,11 +1,11 @@
-package io.javabrains.inbox.Controller;
+package com.messaging.inbox.Controller;
 
-import io.javabrains.inbox.EmailFolder.Email;
-import io.javabrains.inbox.EmailFolder.EmailRepository;
-import io.javabrains.inbox.EmailFolder.EmailService;
-import io.javabrains.inbox.folders.Folder;
-import io.javabrains.inbox.folders.FolderRepository;
-import io.javabrains.inbox.folders.FolderService;
+import com.messaging.inbox.EmailFolder.Email;
+import com.messaging.inbox.EmailFolder.EmailRepository;
+import com.messaging.inbox.EmailFolder.EmailService;
+import com.messaging.inbox.folders.Folder;
+import com.messaging.inbox.folders.FolderRepository;
+import com.messaging.inbox.folders.FolderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.core.user.OAuth2User;
@@ -38,24 +38,20 @@ public class ComposeController {
              @RequestParam(required = false) UUID id,
              @AuthenticationPrincipal OAuth2User principal,
              Model model
-             ){
-         if(principal ==null || !StringUtils.hasText(principal.getAttribute("login"))){
-             return "index";
-         }
-
-         //Fetch the folders
-
-         String userID= principal.getAttribute("login");
-         List<Folder> userFolders = folderRepository.findAllById((userID));
-         model.addAttribute("userFolders",userFolders);
-         List<Folder> defaultFolders = folderService.fetchDefaultFolders(userID);
-         model.addAttribute("defaultFolders",defaultFolders);
-         model.addAttribute("stats", folderService.mapCountToLabels(userID));
-         model.addAttribute("userName",principal.getAttribute("name")); // showing userName
-
-         List<String> uniqueToIds = splitIds(to);
-         model.addAttribute("toIds", String.join(", ", uniqueToIds));
-    /*   Optional<Email> optionalEmail = emailRepository.findById(id);//UUID id
+             ) {
+        if (principal == null || !StringUtils.hasText(principal.getAttribute("login"))) {
+            return "index";
+        }
+        String userID = principal.getAttribute("login");
+        List<Folder> userFolders = folderRepository.findAllById((userID));
+        model.addAttribute("userFolders", userFolders);
+        List<Folder> defaultFolders = folderService.fetchDefaultFolders(userID);
+        model.addAttribute("defaultFolders", defaultFolders);
+        model.addAttribute("stats", folderService.mapCountToLabels(userID));
+        model.addAttribute("userName", principal.getAttribute("name"));
+        List<String> uniqueToIds = splitIds(to);
+        model.addAttribute("toIds", String.join(", ", uniqueToIds));
+        Optional<Email> optionalEmail = emailRepository.findById(id);//UUID id
 
          if(optionalEmail.isPresent()){
              Email email = optionalEmail.get();
@@ -63,11 +59,9 @@ public class ComposeController {
                  model.addAttribute("subject", emailService.getReplySubject(email.getSubject()));
                  model.addAttribute("body",emailService.getReplyBody(email));
              }
-         } */
-
-         return "compose-page";
-     }
-
+    }
+        return "compose-page";
+    }
     private static List<String> splitIds(String to) {
         if(!StringUtils.hasText(to)){
             return new ArrayList<>();
@@ -97,8 +91,6 @@ public class ComposeController {
         emailService.sendEmail(from,toIds,subject,body);
 
         return new ModelAndView("redirect:/");
-
-
 
     }
 

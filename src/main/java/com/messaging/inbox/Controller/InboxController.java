@@ -1,10 +1,13 @@
-package io.javabrains.inbox.Controller;
+package com.messaging.inbox.Controller;
 
 import com.datastax.oss.driver.api.core.uuid.Uuids;
-import io.javabrains.inbox.EmailFolder.EmailRepository;
-import io.javabrains.inbox.emaillist.EmailListItem;
-import io.javabrains.inbox.emaillist.EmailListItemRepository;
-import io.javabrains.inbox.folders.*;
+import com.messaging.inbox.emaillist.EmailListItem;
+import com.messaging.inbox.emaillist.EmailListItemRepository;
+import com.messaging.inbox.folders.Folder;
+import com.messaging.inbox.folders.FolderRepository;
+import com.messaging.inbox.folders.FolderService;
+import com.messaging.inbox.folders.UnreadEmailStatsRepository;
+import com.messaging.inbox.folders.*;
 import org.ocpsoft.prettytime.PrettyTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -18,7 +21,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 @Controller
 public class InboxController {

@@ -80,7 +80,7 @@
                             <dt>From</dt>
                                 <dd th:text="${email.from}" ></dd>
                                 <dt>To</dt>
-                                <dd th:text="${toIds}"  ></dd>
+                                <dd th:text="${toIds}" ></dd>
                                 <dt>Subject</dt>
                                 <dd th:text="${email.subject}"></dd>
                                 <dt>Body</dt>
@@ -91,7 +91,7 @@
                                th:href="@{'/compose?to='+${email.from} + '&id=' + ${email.id} }"
                                 type="button">Reply</a>
                             <a class="btn btn-primary"
-                               th:href="@{'/compose?to='+${toIds}+','+${email.from}}"
+                               th:href="@{'/compose?to='+${toIds}+','+${email.from} + '&id=' + ${email.id}  }"
                                type="button">Reply All </a>
                         </div>
 

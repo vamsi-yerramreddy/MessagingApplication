@@ -1,6 +1,5 @@
-package io.javabrains.inbox.emaillist;
+package com.messaging.inbox.emaillist;
 
-import jdk.jfr.TransitionTo;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.cassandra.core.mapping.CassandraType;
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;

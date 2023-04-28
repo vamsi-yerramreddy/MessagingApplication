@@ -1,4 +1,4 @@
-package io.javabrains.inbox.folders;
+package com.messaging.inbox.folders;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

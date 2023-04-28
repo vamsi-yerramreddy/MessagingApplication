@@ -1,4 +1,4 @@
-package io.javabrains.inbox.EmailFolder;
+package com.messaging.inbox.EmailFolder;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.cassandra.core.cql.PrimaryKeyType;

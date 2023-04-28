@@ -1,10 +1,9 @@
-package io.javabrains.inbox.folders;
+package com.messaging.inbox.folders;
 
 import org.springframework.data.cassandra.repository.CassandraRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Repository
 public interface FolderRepository extends CassandraRepository<Folder, String> {
